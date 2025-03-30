@@ -15,9 +15,12 @@ namespace LMS.Domain.Entities.Stock
         public LogType ChangeType { get; set; }
         public int ChangedQuantity { get; set; }
 
+        public Product Product { get; set; }
+
         public InventoryLog()
         {
             InventoryLogId = Guid.NewGuid();
+            Product = null!;
         }
     }
 
