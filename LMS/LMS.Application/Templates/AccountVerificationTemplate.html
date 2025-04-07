@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #dce3ed;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .body {
+            padding: 30px;
+            text-align: left;
+        }
+
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .otp-container {
+            background: #f0f5ff;
+            border: 1px dashed #3b82f6;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #3b82f6;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #f7f9fc;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #606f7b;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="header">Verify Your Account</div>
+        <div class="body">
+            <p class="greeting">Hi {{name}},</p>
+            <p class="message">
+                Welcome back! We need to confirm your identity before you can access your account.
+            </p>
+            <p class="message">
+                Please enter the following verification code to complete your login process:
+            </p>
+            <div class="otp-container">{{code}}</div>
+            <p class="message">
+                This code will expire in 10 minutes.
+            </p>
+            <p class="message">
+                If you didn’t request this, please disregard this email.
+            </p>
+            <p class="message">
+                Best regards, <br> Noor Center Team
+            </p>
+        </div>
+        <div class="footer">
+            &copy; 2025 Noor Center. All rights reserved. <br>
+            Need assistance? <a href="mailto:support@brightcenter.com">Contact Support</a>
+        </div>
+    </div>
+</body>
+
+</html>

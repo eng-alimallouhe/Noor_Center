@@ -38,7 +38,6 @@ namespace LMS.Domain.Entities.Users
 
         public RefreshToken RefreshToken { get; set; } = null!;
 
-
         public User()
         {
             UserId = Guid.NewGuid();

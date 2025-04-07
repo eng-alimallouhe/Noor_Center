@@ -1,0 +1,166 @@
+.code-form {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #374d79;
+    background-color: #7ea6ec;
+    align-items: center;
+}
+
+.fomr-container {
+    width: 40vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+.fomr-container::before {
+    content: '';
+    width: 100%;
+    height: 20px;
+    background-image: linear-gradient(to right, #234d97, #5577b4, #7694c6, #b4cbeb, #c4d5f2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.fomr-container::after {
+    content: '';
+    width: 100%;
+    height: 20px;
+    background-image: linear-gradient(to right, #234d97, #5577b4, #7694c6, #b4cbeb, #c4d5f2);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 8px 8px;
+}
+
+
+.code-form .fomr-container {
+    padding: 20px;
+    margin-top: 22px;
+    margin-bottom: 22px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    margin: 25px;
+}
+
+
+.input-group input {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 2px #234d97 solid;
+    border-radius: 2px;
+    outline: none;
+    background: none;
+}
+
+.code-form h2 {
+    margin-bottom: 15px;
+}
+
+
+.coder-form h2 {
+    font-size: 2.5vw;
+    margin-top: 10px;
+}
+
+.input-group label {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    background-color: white;
+    color: #234d97;
+    padding: 0 5px;
+    transition: 0.2s ease all;
+    pointer-events: none;
+}
+
+
+.input-group input:focus+label,
+.input-group input:valid+label {
+    top: -10px;
+    left: 8px;
+    font-size: 14px;
+    color: #234d97;
+}
+
+.sumit-group button {
+    width: 90%;
+    position: relative;
+    height: 50px;
+    border: none;
+    font-size: 15px;
+    border-radius: 20px;
+    text-align: left;
+    padding-left: 20px;
+    outline: none;
+    background-color: #264da8;
+    color: #fff;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.sumit-group button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid #fff;
+}
+
+.re-send-link,
+.re-register-link {
+    width: 100%;
+    height: 40px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.re-send-link a,
+.re-register-link a {
+    text-decoration: none;
+    color: #234d97;
+}
+
+
+.code-button{
+    border: none;
+    outline: none;
+    text-decoration: solid;
+    background-color: inherit;
+    font-size: 15px;
+    color: #234d97;
+    cursor: pointer;
+}

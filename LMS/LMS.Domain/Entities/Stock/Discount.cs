@@ -3,10 +3,10 @@
     public class Discount
     {
         // Primary key:
-        public int DiscountId { get; set; }
+        public Guid DiscountId { get; set; }
 
         // Foreign key:
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
 
         public decimal DiscountPercentage { get; set; }
         public DateTime StartDate { get; set; }

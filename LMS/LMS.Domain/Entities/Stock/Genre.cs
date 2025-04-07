@@ -3,7 +3,7 @@
     public class Genre
     {
         // Primary key:
-        public int GenreId { get; set; }
+        public Guid GenreId { get; set; }
 
         public string GenreName { get; set; } = string.Empty;
         public string GenreDescription { get; set; } = string.Empty;

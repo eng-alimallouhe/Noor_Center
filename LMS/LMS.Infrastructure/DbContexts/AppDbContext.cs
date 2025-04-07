@@ -9,7 +9,7 @@ using LMS.Infrastructure.Configurations.Financial;
 using LMS.Infrastructure.Configurations.HR;
 using LMS.Infrastructure.Configurations.Orders;
 using LMS.Infrastructure.Configurations.Stock;
-using LMS.Infrastructure.Configurations.Users;
+using LMS.Infrastructure.Configurations.Users;  
 using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Infrastructure.DbContexts

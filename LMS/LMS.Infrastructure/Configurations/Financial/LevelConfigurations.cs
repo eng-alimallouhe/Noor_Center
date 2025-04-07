@@ -24,7 +24,11 @@ namespace LMS.Infrastructure.Configurations.Financial
             builder.Property(l => l.DiscountPercentage)
                     .HasColumnType("Decimal(7,2)")
                     .IsRequired();
-            
+
+            builder.Property(l => l.PointPerDolar)
+                   .HasColumnType("Decimal(7,2)")
+                   .IsRequired();
+
             builder.Property(l => l.IsActive)
                     .IsRequired();
 

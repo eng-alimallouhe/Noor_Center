@@ -1,0 +1,89 @@
+<app-alert *ngIf="showAlert" [message]="alertMessage" (closed)="onAlertClosed()" style="
+width: 100vw;
+height: 100vh;
+position: absolute;
+z-index: 999;
+display: flex;
+justify-content: center;
+">
+</app-alert>
+
+<form action="" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="register-form">
+    <div class="fomr-container">
+        <h2>Wellcom Back</h2>
+
+        <div class="input-group">
+            <input type="email" id="email" formControlName="email" required>
+            <label for="email">Email</label>
+
+            @if (isEmailNotExists) {
+            <div style="margin-top: 5px;">
+                <span style="
+                                                        width: fit-content;
+                                                        color: red;
+                                                        ">
+                    this email is not found
+                </span>
+            </div>
+            }
+
+            @else if (loginForm.get('email')?.dirty && loginForm.get('email')?.invalid) {
+            <div style="margin-top: 5px;">
+                <span style="
+                                            width: fit-content;
+                                            color: red;
+                                            ">
+                    @if (loginForm.get('email')?.errors?.['required']) {
+                    this fild is required
+                    }
+                    @if (loginForm.get('email')?.errors?.['email']) {
+                    provide a valid email
+                    }
+                </span>
+            </div>
+            }
+
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" formControlName="password" required>
+            <label for="password">Password</label>
+
+            @if (loginForm.get('password')?.dirty && loginForm.get('password')?.invalid) {
+            <div style="margin-top: 5px;">
+                <span style="
+                                            width: fit-content;
+                                            color: red;
+                                            ">
+                    this fild is required
+                </span>
+            </div>
+            }
+
+        </div>
+
+        @if (isLoginNotValid) {
+        <div style="margin-top: 5px;">
+            <span style="
+                                                    width: fit-content;
+                                                    color: red;
+                                                    ">
+                email or password not valid
+            </span>
+        </div>
+        }
+
+        <div class="sumit-group">
+            <button type="submit" [disabled]="!loginForm.valid">Log in</button>
+        </div>
+
+        <div class="login-link">
+            <a [routerLink]="['/authentication/login']">Don't have an account? register now</a>
+        </div>
+
+        <div class="login-link">
+            <a [routerLink]="['/authentication/forgatepassword']">forgate password?</a>
+        </div>
+
+    </div>
+</form>

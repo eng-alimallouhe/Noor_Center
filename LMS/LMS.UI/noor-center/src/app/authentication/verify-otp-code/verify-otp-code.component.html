@@ -1,0 +1,57 @@
+<app-alert *ngIf="showAlert" [message]="alertMessage" (closed)="onAlertClosed()" style="
+width: 100vw;
+height: 100vh;
+position: absolute;
+z-index: 999;
+display: flex;
+justify-content: center;
+">
+</app-alert>
+
+<form action="" [formGroup]="codeForm" (ngSubmit)="onSubmit()" class="code-form">
+    <div class="fomr-container">
+        <h2>Verify You Email</h2>
+
+        <div class="input-group">
+            <input type="email" id="email" formControlName="email">
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="code" formControlName="code" required>
+            <label for="code">Verification Code</label>
+            @if (hasError) {
+            <div style="margin-top: 5px;">
+                <span style="
+                                                            width: fit-content;
+                                                            color: red;
+                                                            ">
+                    {{errorMessage}}
+                </span>
+            </div>
+            }
+            @else if (codeForm.get("code")?.dirty && codeForm.get("code")?.invalid) {
+            <div style="margin-top: 5px;">
+                <span style="
+                                                            width: fit-content;
+                                                            color: red;
+                                                            ">
+                    code is required and must be 6 digits only
+                </span>
+            </div>
+            }
+
+
+            <div class="sumit-group input-group">
+                <button type="submit" [disabled]="!codeForm.valid">Verify</button>
+            </div>
+
+            <div class="re-send-link input-group">
+                <button (click)="getNewCode()" class="code-button">Don't Have an code? get new one</button>
+            </div>
+
+            <div class="re-register-link input-group">
+                <a [routerLink]="['authentication/register']">Uncorrect email? re-register</a>
+            </div>
+        </div>
+    </div>
+</form>

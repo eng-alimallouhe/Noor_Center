@@ -42,7 +42,7 @@ namespace LMS.Infrastructure.Repositories.Users
                 await _context.SaveChangesAsync();
                 return;
             }
-            throw new NotImplementedException();
+            throw new Exception();
         }
     }
 }

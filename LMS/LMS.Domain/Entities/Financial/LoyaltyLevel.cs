@@ -12,6 +12,8 @@ namespace LMS.Domain.Entities.Financial
         public decimal DiscountPercentage { get; set; }
         public string LevelDescription { get; set; } = string.Empty;
 
+        public decimal PointPerDolar { get; set; }
+
         //soft delete: 
         public bool IsActive { get; set; }
 

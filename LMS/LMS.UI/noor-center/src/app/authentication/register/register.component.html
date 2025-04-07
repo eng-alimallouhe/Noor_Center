@@ -1,0 +1,95 @@
+<app-alert *ngIf="showAlert" [message]="alertMessage" (closed)="onAlertClosed()" style="
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+">
+</app-alert>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+    <div class="fomr-container">
+        <h2>{{ "welcome"|translate }}</h2>
+
+        <!-- Full Name -->
+        <div class="input-group">
+            <input type="text" id="fullName" formControlName="fullName" required>
+            <label for="fullName">{{ "fullName"|translate }}</label>
+            @if (registerForm.get('fullName')?.dirty && registerForm.get('fullName')?.invalid) {
+            <div style="margin-top: 5px;">
+                <span style="color: red;">
+                    {{ "requiredField"|translate }}
+                </span>
+            </div>
+            }
+        </div>
+
+        <!-- Username -->
+        <div class="input-group">
+            <input type="text" id="username" formControlName="username" required>
+            <label for="username">{{ "username"|translate }}</label>
+            @if (registerForm.get('username')?.hasError('usernameTaken')) {
+            <div style="margin-top: 5px;">
+                <span style="color: red;">
+                    {{ "usernameUnavailable"|translate }}
+                </span>
+            </div>
+            }
+            @else if (registerForm.get('username')?.dirty && registerForm.get('username')?.invalid) {
+            <div style="margin-top: 5px;">
+                <span style="color: red;">
+                    {{ "requiredField"|translate }}
+                </span>
+            </div>
+            }
+        </div>
+
+        <!-- Email -->
+        <div class="input-group">
+            <input type="email" id="email" formControlName="email" required>
+            <label for="email">{{ "email"|translate }}</label>
+            @if (registerForm.get('email')?.dirty && registerForm.get('email')?.invalid) {
+            <div style="margin-top: 5px;">
+                <span style="color: red;">
+                    @if (registerForm.get('email')?.errors?.['required']) {
+                    {{ "requiredField"|translate }}
+                    }
+                    @if (registerForm.get('email')?.errors?.['email']) {
+                    {{ "invalidEmail"|translate }}
+                    }
+                </span>
+            </div>
+            }
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+            <input type="password" id="password" formControlName="password" required>
+            <label for="password">{{ "password"|translate }}</label>
+            @if (registerForm.get('password')?.dirty && registerForm.get('password')?.invalid) {
+            <div style="margin-top: 5px;">
+                <span style="color: red;">
+                    {{ "requiredField"|translate }}
+                </span>
+            </div>
+            }
+        </div>
+
+        <!-- Remember Me -->
+        <div class="remember-group">
+            <input type="checkbox" formControlName="rememberMe" id="remember">
+            <label for="remember">{{ "rememberMe"|translate }}</label>
+        </div>
+
+        <!-- Submit -->
+        <div class="sumit-group">
+            <button type="submit" [disabled]="!registerForm.valid">{{ "register"|translate }}</button>
+        </div>
+
+        <!-- Login Link -->
+        <div class="login-link">
+            <a [routerLink]="['/authentication/login']">{{ "loginLink"|translate }}</a>
+        </div>
+    </div>
+</form>

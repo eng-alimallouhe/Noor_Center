@@ -6,23 +6,21 @@ namespace LMS.Infrastructure.Repositories.Stock
     public class BookRepository : BaseRepository<Book>
     {
         private readonly AppDbContext _context;
-        private readonly ProductRepository _productRepository;
 
         public BookRepository(
-            AppDbContext context,
-            ProductRepository productRepository
+            AppDbContext context
             ) 
             : base(context)
         {
             _context = context;
-            _productRepository = productRepository;
         }
         public override async Task DeleteAsync(Guid id)
         {
             var book = await _context.Books.FindAsync(id);
             if (book is not null)
             {
-                await _productRepository.DeleteAsync(book.ProductId);
+                book.IsActive = false;
+                await _context.SaveChangesAsync();
             }
             else
             {

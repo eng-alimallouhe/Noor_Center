@@ -7,7 +7,7 @@
 
         // Foreign Key: UserId ==> one(user) to many(notifications) relationship
         public Guid UserId { get; set; }
-
+        public string Title { get; set; } = string.Empty;
         public string Message { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public bool IsRead { get; set; } = false; 
